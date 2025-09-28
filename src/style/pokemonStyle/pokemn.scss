@@ -1,0 +1,45 @@
+@import "./src/style/variable";
+
+.pokemon-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 1.5rem;
+  padding: 2rem;
+  background-color: $bg-color;
+  width: 50%;
+  height: 500px;
+overflow-y: scroll;
+
+  @media (max-width: 600px) {
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  }
+}
+
+.pokemon-card {
+  background: white;
+  border-radius: $border-radius;
+  box-shadow: $card-shadow;
+  padding: 1rem;
+  text-align: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+
+  img {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    margin-bottom: 0.5rem;
+  }
+
+  .pokemon-name {
+    font-size: 1rem;
+    font-weight: bold;
+    color: $text-color;
+    text-transform: capitalize;
+  }
+}

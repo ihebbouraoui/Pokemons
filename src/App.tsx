@@ -1,26 +1,32 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import PokemonList from "./pages/pokemonsList";
+import {
+	BrowserRouter as Router, Routes, Route
+} from "react-router-dom";
+import './style/main.scss'
+import PokemonDetail from "./pages/pokemonDetails";
+import {useSelector} from "react-redux";
+import {RootState} from "./store/store";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	const data = useSelector((state: RootState) => state.pokemon.selected);
+	console.log(data.weight)
+	return (
+		<Router>
+			<div>
+				<h1> Pokemon</h1>
+
+				<div style={{display:'flex',justifyContent:'space-between'}}>
+					<PokemonList/>
+					{
+						data.weight && <PokemonDetail/>
+					}
+				</div>
+
+			</div>
+		</Router>
+	);
 }
 
 export default App;
