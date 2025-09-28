@@ -19,7 +19,7 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser. h
 
 How to run tests and view coverage:
 
-### `yarn yarn test --coverage`
+### `yarn test --coverage`
 
 ### `yarn build`
 
